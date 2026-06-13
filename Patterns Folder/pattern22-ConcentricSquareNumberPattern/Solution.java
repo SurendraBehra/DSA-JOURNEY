@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+class Solution {
+    public void pattern22(int n) {
+        int size = 2 * n - 1;
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+
+                int top = i;
+                int left = j;
+                int right = size - 1 - j;
+                int bottom = size - 1 - i;
+
+                int minDist = Math.min(
+                        Math.min(top, bottom),
+                        Math.min(left, right)
+                );
+
+                System.out.print(n - minDist + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        Solution obj = new Solution();
+        obj.pattern22(n);
+    }
+}
